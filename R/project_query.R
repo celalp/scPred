@@ -83,8 +83,8 @@ if(alignment){
   ref_loadings <- ref_loadings[shared_features, ]
   
   
-  
-  new_data <- GetAssayData(new, "data")[shared_features,]
+  assay<-DefaultAssay(new)
+  new_data <- GetAssayData(new, "data", assay=assay)[shared_features,]
   means <- spmodel@scaling$means
   stdevs  <- spmodel@scaling$stdevs
   new_data <- Matrix::t(new_data)
